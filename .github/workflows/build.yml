@@ -8,6 +8,16 @@ on:
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch: 
+  
+env:
+  REACT_APP_API_KEY: ${{ secrets.REACT_APP_API_KEY }}
+  REACT_APP_AUTH_DOMAIN: ${{ secrets.REACT_APP_AUTH_DOMAIN }}
+  REACT_APP_PROJECT_ID: ${{ secrets.REACT_APP_PROJECT_ID }}
+  REACT_APP_STORAGE_BUCKET: ${{ secrets.REACT_APP_STORAGE_BUCKET }}
+  REACT_APP_MESSAGING_SENDER_ID: ${{ secrets.REACT_APP_MESSAGING_SENDER_ID }}
+  REACT_APP_APP_ID: ${{ secrets.REACT_APP_APP_ID }}
+  REACT_APP_MEASUREMENT_ID: ${{ secrets.REACT_APP_MEASUREMENT_ID }}
+  REACT_APP_DATABASE_URL: ${{ secrets.REACT_APP_DATABASE_URL }}
 
 jobs:
   build:
@@ -18,7 +28,7 @@ jobs:
         run: yarn install --python=python
       - name: Build site
         run: |
-          yarn build --env.REACT_APP_API_KEY=${{ secrets.REACT_APP_API_KEY }} --env.REACT_APP_AUTH_DOMAIN=${{ secrets.REACT_APP_AUTH_DOMAIN }} --env.REACT_APP_PROJECT_ID=${{ secrets.REACT_APP_PROJECT_ID }} --env.REACT_APP_STORAGE_BUCKET=${{ secrets.REACT_APP_STORAGE_BUCKET }} --env.REACT_APP_MESSAGING_SENDER_ID=${{ secrets.REACT_APP_MESSAGING_SENDER_ID }} --env.REACT_APP_APP_ID=${{ secrets.REACT_APP_APP_ID }} --env.REACT_APP_MEASUREMENT_ID=${{ secrets.REACT_APP_MEASUREMENT_ID }} --env.REACT_APP_DATABASE_URL=${{ secrets.REACT_APP_DATABASE_URL }}
+          yarn build
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
