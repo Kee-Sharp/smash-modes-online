@@ -1,0 +1,1 @@
+{"version":3,"sources":["../public/horizontal/ice_climber.png"],"names":["module","exports"],"mappings":"mHAAAA,EAAOC,QAAU,IAA0B","file":"static/js/24.38cbeddb.chunk.js","sourcesContent":["module.exports = __webpack_public_path__ + \"static/media/ice_climber.a8c260aa.png\";"],"sourceRoot":""}

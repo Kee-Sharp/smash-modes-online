@@ -1,0 +1,1 @@
+{"version":3,"sources":["../public/horizontal/marth.png"],"names":["module","exports"],"mappings":"mHAAAA,EAAOC,QAAU,IAA0B","file":"static/js/42.1fe36ae6.chunk.js","sourcesContent":["module.exports = __webpack_public_path__ + \"static/media/marth.574554ad.png\";"],"sourceRoot":""}

@@ -1,0 +1,2 @@
+(this["webpackJsonpsmash-modes-online"]=this["webpackJsonpsmash-modes-online"]||[]).push([[52],{109:function(s,n,a){s.exports=a.p+"static/media/palutena.603a1486.png"}}]);
+//# sourceMappingURL=52.971fdf72.chunk.js.map

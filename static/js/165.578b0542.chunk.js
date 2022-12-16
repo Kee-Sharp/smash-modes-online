@@ -1,0 +1,2 @@
+(this["webpackJsonpsmash-modes-online"]=this["webpackJsonpsmash-modes-online"]||[]).push([[165],{222:function(s,i,e){s.exports=e.p+"static/media/wii_fit_trainer.b1fd76ce.png"}}]);
+//# sourceMappingURL=165.578b0542.chunk.js.map

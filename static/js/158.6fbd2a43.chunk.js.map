@@ -1,0 +1,1 @@
+{"version":3,"sources":["../public/vertical/snake.png"],"names":["module","exports"],"mappings":"qHAAAA,EAAOC,QAAU,IAA0B","file":"static/js/158.6fbd2a43.chunk.js","sourcesContent":["module.exports = __webpack_public_path__ + \"static/media/snake.315bf529.png\";"],"sourceRoot":""}

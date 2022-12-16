@@ -1,0 +1,1 @@
+{"version":3,"sources":["../public/horizontal/kirby.png"],"names":["module","exports"],"mappings":"mHAAAA,EAAOC,QAAU,IAA0B","file":"static/js/32.d7678eba.chunk.js","sourcesContent":["module.exports = __webpack_public_path__ + \"static/media/kirby.c1df1339.png\";"],"sourceRoot":""}

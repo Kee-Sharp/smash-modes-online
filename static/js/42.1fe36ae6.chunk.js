@@ -1,0 +1,2 @@
+(this["webpackJsonpsmash-modes-online"]=this["webpackJsonpsmash-modes-online"]||[]).push([[42],{99:function(s,n,a){s.exports=a.p+"static/media/marth.574554ad.png"}}]);
+//# sourceMappingURL=42.1fe36ae6.chunk.js.map
