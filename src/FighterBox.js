@@ -1,37 +1,36 @@
-import React from "react";
+import React, { useEffect, useState } from 'react';
 
-export const FighterBox = ({
-  available,
-  fighterClick,
-  setPick,
-  toFileName
-}) => {
-  var fighters = [];
-  for (var x in available) {
-    if (available[x]) {
-      fighters.push(x);
-    }
-  }
+export const FighterBox = ({ available, fighterClick, setPick }) => {
+  const [images, setImages] = useState([]);
+  useEffect(() => {
+    Promise.all(
+      available.map(fighter => import(`../public/horizontal/${fighter.file}.png`))
+    ).then(imageModules => {
+      setImages(imageModules.map(m => m.default));
+    });
+  }, [available]);
   //107x50 original 200x94
   return (
-    <div className="fighter-box" onMouseOut={() => setPick("none")}>
-      {fighters.map((val, i) => (
-        <img
-          src={`https://www.smashbros.com/assets_v2/img/fighter/thumb_h/${toFileName(
-            val
-          )}.png`}
-          key={i}
-          alt={val}
-          height={50}
-          style={{
-            objectFit: "cover",
-            objectPosition: "-90px 0",
-            width: 107
-          }}
-          onClick={() => fighterClick(val)}
-          onMouseOver={() => setPick(val)}
-        />
-      ))}
+    <div className="fighter-box" onMouseOut={() => setPick('none')}>
+      {available.map((fighter, i) => {
+        const { name, file } = fighter;
+        return (
+          <img
+            src={images[i] ?? null}
+            key={file}
+            alt={name}
+            height={50}
+            style={{
+              objectFit: 'cover',
+              objectPosition: '-90px 0',
+              width: 107,
+              border: '1px solid black',
+            }}
+            onClick={() => fighterClick(name)}
+            onMouseOver={() => setPick(name)}
+          />
+        );
+      })}
     </div>
   );
 };
