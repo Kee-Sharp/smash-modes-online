@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/smash-modes-online/static/css/main.6be7ab9b.chunk.css",
-    "main.js": "/smash-modes-online/static/js/main.6ce1c53d.chunk.js",
-    "main.js.map": "/smash-modes-online/static/js/main.6ce1c53d.chunk.js.map",
+    "main.js": "/smash-modes-online/static/js/main.6520b517.chunk.js",
+    "main.js.map": "/smash-modes-online/static/js/main.6520b517.chunk.js.map",
     "runtime-main.js": "/smash-modes-online/static/js/runtime-main.d0702656.js",
     "runtime-main.js.map": "/smash-modes-online/static/js/runtime-main.d0702656.js.map",
     "static/css/2.829c9cb5.chunk.css": "/smash-modes-online/static/css/2.829c9cb5.chunk.css",
-    "static/js/2.29043ace.chunk.js": "/smash-modes-online/static/js/2.29043ace.chunk.js",
-    "static/js/2.29043ace.chunk.js.map": "/smash-modes-online/static/js/2.29043ace.chunk.js.map",
+    "static/js/2.c81acaea.chunk.js": "/smash-modes-online/static/js/2.c81acaea.chunk.js",
+    "static/js/2.c81acaea.chunk.js.map": "/smash-modes-online/static/js/2.c81acaea.chunk.js.map",
     "static/js/3.72de1586.chunk.js": "/smash-modes-online/static/js/3.72de1586.chunk.js",
     "static/js/3.72de1586.chunk.js.map": "/smash-modes-online/static/js/3.72de1586.chunk.js.map",
     "static/js/4.bcd954f6.chunk.js": "/smash-modes-online/static/js/4.bcd954f6.chunk.js",
@@ -345,11 +345,11 @@
     "static/js/170.cd313104.chunk.js": "/smash-modes-online/static/js/170.cd313104.chunk.js",
     "static/js/170.cd313104.chunk.js.map": "/smash-modes-online/static/js/170.cd313104.chunk.js.map",
     "index.html": "/smash-modes-online/index.html",
-    "precache-manifest.92fecadeb0832fd7c1740cb581820013.js": "/smash-modes-online/precache-manifest.92fecadeb0832fd7c1740cb581820013.js",
+    "precache-manifest.030126cb0f9af6eb75a6ffb225e08069.js": "/smash-modes-online/precache-manifest.030126cb0f9af6eb75a6ffb225e08069.js",
     "service-worker.js": "/smash-modes-online/service-worker.js",
     "static/css/2.829c9cb5.chunk.css.map": "/smash-modes-online/static/css/2.829c9cb5.chunk.css.map",
     "static/css/main.6be7ab9b.chunk.css.map": "/smash-modes-online/static/css/main.6be7ab9b.chunk.css.map",
-    "static/js/2.29043ace.chunk.js.LICENSE.txt": "/smash-modes-online/static/js/2.29043ace.chunk.js.LICENSE.txt",
+    "static/js/2.c81acaea.chunk.js.LICENSE.txt": "/smash-modes-online/static/js/2.c81acaea.chunk.js.LICENSE.txt",
     "static/media/banjo_and_kazooie.png": "/smash-modes-online/static/media/banjo_and_kazooie.f2d4b079.png",
     "static/media/bayonetta.png": "/smash-modes-online/static/media/bayonetta.3356c969.png",
     "static/media/black_pit.png": "/smash-modes-online/static/media/black_pit.c2e0dddb.png",
@@ -438,8 +438,8 @@
   "entrypoints": [
     "static/js/runtime-main.d0702656.js",
     "static/css/2.829c9cb5.chunk.css",
-    "static/js/2.29043ace.chunk.js",
+    "static/js/2.c81acaea.chunk.js",
     "static/css/main.6be7ab9b.chunk.css",
-    "static/js/main.6ce1c53d.chunk.js"
+    "static/js/main.6520b517.chunk.js"
   ]
 }
