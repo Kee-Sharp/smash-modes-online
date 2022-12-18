@@ -8,12 +8,12 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = this.initialState();
-    this.props.setupDatabase();
   }
   initialState = () => ({
     p1: { wins: 0, picks: [], name: 'p1' },
     p2: { wins: 0, picks: [], name: 'p2' },
-    gameMode: 0, //0-setup mercy and names, 1-picking chars, 2-after game, 3-game over
+    /** 0-setup mercy and names, 1-picking chars, 2-after game, 3-game over */
+    gameMode: this.props.roomOptions ? 1 : 0,
     turn: 'p1',
     winner: '',
     p1Pick: 'none',
@@ -21,13 +21,11 @@ class App extends React.Component {
     totalBattles: 0,
     images: {},
   });
-  componentDidUpdate(prevProps) {
-    // we only want to do this when we first get the list of fighters
-    if (
-      prevProps.available.length ||
-      prevProps.available.length === this.props.available.length
-    )
-      return;
+  componentDidUpdate() {
+    if (this.state.gameMode === 0 && this.props.roomOptions)
+      this.setState({ gameMode: 1 });
+    // we only want to do this once
+    if (Object.keys(this.state.images).length) return;
     Promise.all(
       this.props.available.map(fighter =>
         import(`../public/vertical/${fighter.file}.png`)
@@ -45,8 +43,10 @@ class App extends React.Component {
     });
   }
   startGame = (maxBattles, name1, name2, mercy) => {
-    this.maxBattles = maxBattles;
-    this.maxWins = mercy ? Math.floor(maxBattles / 2) + 1 : maxBattles;
+    this.props.setupRoom({
+      maxBattles,
+      maxWins: mercy ? Math.floor(maxBattles / 2) + 1 : maxBattles,
+    });
     this.setState({
       p1: { ...this.state.p1, name: name1 },
       p2: { ...this.state.p2, name: name2 },
@@ -79,7 +79,9 @@ class App extends React.Component {
     }
   };
   setWinner = val => {
+    if (!this.props.roomOptions) return;
     const { p1, p2, totalBattles } = this.state;
+    const { maxBattles, maxWins } = this.props.roomOptions;
     var p1Wins = p1.wins;
     var p2Wins = p2.wins;
     if (val === p1.name) {
@@ -88,11 +90,11 @@ class App extends React.Component {
       p2Wins += 1;
     }
     this.setState({ p1: { ...p1, wins: p1Wins }, p2: { ...p2, wins: p2Wins } });
-    if (p1Wins >= this.maxWins) {
+    if (p1Wins >= maxWins) {
       this.setState({ winner: p1.name, gameMode: 3 });
-    } else if (p2Wins >= this.maxWins) {
+    } else if (p2Wins >= maxWins) {
       this.setState({ winner: p2.name, gameMode: 3 });
-    } else if (totalBattles + 1 >= this.maxBattles) {
+    } else if (totalBattles + 1 >= maxBattles) {
       this.setState({
         winner: p1Wins >= p2Wins ? p1.name : p2.name,
         gameMode: 3,
@@ -107,15 +109,12 @@ class App extends React.Component {
     }
   };
   handleClose = () => {
-    const { onClose, setupDatabase } = this.props;
-    onClose();
-    this.setState(this.initialState());
-    setupDatabase();
+    this.props.onClose();
   };
 
   render() {
-    const { fighterClick, setWinner, setPick, startGame, maxBattles, handleClose } = this;
-    const { available } = this.props;
+    const { fighterClick, setWinner, setPick, startGame, handleClose } = this;
+    const { available, roomOptions = {} } = this.props;
     const { p1, p2, turn, gameMode, winner, p1Pick, p2Pick, totalBattles, images } =
       this.state;
     if (gameMode === 0) {
@@ -130,7 +129,7 @@ class App extends React.Component {
               flexDirection: 'column',
             }}
           >
-            <p>{`${maxBattles - totalBattles} battles left`}</p>
+            <p>{`${roomOptions.maxBattles - totalBattles} battles left`}</p>
             <FighterBox
               available={available}
               fighterClick={fighterClick}
@@ -155,7 +154,14 @@ class App extends React.Component {
                 <div className="win-circle perfect-center">{p2.wins}</div>
               </div>
             </div>
-            <div>
+            <div
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+              }}
+            >
+              <h6>Room Id: {this.props.roomId}</h6>
               <Button onClick={handleClose}>Leave Room</Button>
             </div>
           </div>
@@ -185,6 +191,7 @@ class App extends React.Component {
           <div style={{ position: 'relative', left: -left }}>
             {winRoster.reverse().map((name, i) => (
               <div
+                className="winningImage"
                 style={{
                   border: '1px solid black',
                   borderRadius: 10,

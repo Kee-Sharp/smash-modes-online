@@ -59,3 +59,7 @@
 } #setup > * {
   flex-grow: 1
 }
+.winningImage:hover {
+  transform: translateY(-8px);
+  z-index: 1 !important;
+}

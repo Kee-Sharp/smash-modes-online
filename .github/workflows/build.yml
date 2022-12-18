@@ -25,10 +25,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Install dependencies
-        run: yarn install --python=python
+        run: yarn install
       - name: Build site
-        run: |
-          yarn build
+        run: yarn build
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:

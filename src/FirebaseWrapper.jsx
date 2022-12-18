@@ -1,8 +1,17 @@
-import React, { useState } from 'react';
 import { initializeApp } from 'firebase/app';
-import { getDatabase, ref, onValue, set, child, get, remove } from 'firebase/database';
+import {
+  child,
+  get,
+  getDatabase,
+  onValue,
+  push,
+  ref,
+  remove,
+  set,
+} from 'firebase/database';
+import React, { useRef, useState } from 'react';
+import { Button } from 'react-bootstrap';
 import App from './App';
-import { useRef } from 'react';
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_API_KEY,
@@ -20,42 +29,116 @@ const database = getDatabase(app);
 const dbRef = ref(database);
 
 const FirebaseWrapper = () => {
+  const [roomId, setRoomId] = useState('');
+  const [idError, setIdError] = useState(false);
+  const [hasJoinedRoom, setHasJoinedRoom] = useState(false);
   const [available, setAvailable] = useState([]);
+  const [roomOptions, setRoomOptions] = useState(null);
   const unsubscribeRef = useRef(null);
+  const clientId = generateClientId();
 
-  const setupDatabase = () => {
-    get(dbRef).then(snapshot => {
-      const { available, allFighters } = snapshot.val();
-      if (!available) set(child(dbRef, 'available'), allFighters);
-    });
-    const unsubscribe = onValue(child(dbRef, 'available'), snapshot => {
+  const createRoom = async () => {
+    const allFightersSnapshot = await get(child(dbRef, 'allFighters'));
+    const allFighters = allFightersSnapshot.val();
+    const newRoomKey = push(child(dbRef, 'rooms'), { available: allFighters }).key;
+    setRoomId(newRoomKey);
+    joinRoom(newRoomKey);
+  };
+
+  const setupRoom = roomOptions => {
+    set(child(dbRef, `rooms/${roomId}/roomOptions`), roomOptions);
+  };
+
+  const joinRoom = async key => {
+    const roomRef = child(dbRef, `rooms/${key}`);
+    const roomSnapshot = await get(roomRef);
+    const room = roomSnapshot.val();
+    if (!room) {
+      setIdError(true);
+      return;
+    }
+    set(child(roomRef, `clients/${clientId}`), '');
+    // set initial values even though they will be updated by the listener immediately
+    setAvailable(room?.available ?? []);
+    setRoomOptions(room?.roomOptions);
+    const unsubscribe = onValue(roomRef, snapshot => {
       const data = snapshot.val();
       console.log(data);
-      setAvailable(data ?? []);
+      setAvailable(data?.available ?? []);
+      setRoomOptions(data?.roomOptions);
     });
     unsubscribeRef.current = unsubscribe;
+    setHasJoinedRoom(true);
   };
 
   const handleSelection = selectedNames => {
     const newAvailable = available.filter(
       fighter => !selectedNames.includes(fighter.name)
     );
-    set(child(dbRef, 'available'), newAvailable);
+    set(child(dbRef, `rooms/${roomId}/available`), newAvailable);
   };
 
-  const cleanup = () => {
+  const cleanup = async () => {
+    setRoomId('');
+    setHasJoinedRoom(false);
     unsubscribeRef.current();
-    remove(child(dbRef, 'available'));
+    const clientsRef = child(dbRef, `rooms/${roomId}/clients`);
+    await remove(child(clientsRef, clientId));
+    const clientsSnapshot = await get(clientsRef);
+    const clients = clientsSnapshot.val();
+    if (!clients) remove(child(dbRef, `rooms/${roomId}`));
   };
 
-  return (
+  return hasJoinedRoom ? (
     <App
       available={available}
-      setupDatabase={setupDatabase}
+      roomId={roomId}
+      roomOptions={roomOptions}
+      setupRoom={setupRoom}
       onSelectNames={handleSelection}
       onClose={cleanup}
     />
+  ) : (
+    <div style={{ padding: 24 }}>
+      <h2>Smash Modes Online</h2>
+      <div style={{ display: 'flex', marginTop: 40 }}>
+        <div style={{ flex: 1, display: 'flex', justifyContent: 'center' }}>
+          <Button onClick={createRoom}>Create Room</Button>
+        </div>
+        <p style={{ margin: 10 }}>or</p>
+        <div style={{ flex: 1, display: 'flex', justifyContent: 'center' }}>
+          <input
+            className={idError ? 'error' : ''}
+            value={roomId}
+            onChange={e => {
+              setRoomId(e.target.value);
+              setIdError(false);
+            }}
+            placeholder="Enter room id"
+          />
+          <Button
+            onClick={() => joinRoom(roomId)}
+            disabled={!roomId}
+            style={{ borderBottomLeftRadius: 0, borderTopLeftRadius: 0 }}
+          >
+            Join Room
+          </Button>
+        </div>
+      </div>
+    </div>
   );
+};
+
+// code from Chat-GPT
+const generateClientId = () => {
+  // Check if the client ID is already stored in sessionStorage
+  const clientId = sessionStorage.getItem('clientId');
+  if (clientId) return clientId;
+  // Generate a new client ID
+  const newClientId = 'client_' + Math.random().toString(36).substring(2, 15);
+  // Store the client ID in sessionStorage
+  sessionStorage.setItem('clientId', newClientId);
+  return newClientId;
 };
 
 export default FirebaseWrapper;
