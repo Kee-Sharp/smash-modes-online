@@ -99,30 +99,40 @@ const FirebaseWrapper = () => {
       onClose={cleanup}
     />
   ) : (
-    <div style={{ padding: 24 }}>
-      <h2>Smash Modes Online</h2>
-      <div style={{ display: 'flex', marginTop: 40 }}>
-        <div style={{ flex: 1, display: 'flex', justifyContent: 'center' }}>
-          <Button onClick={createRoom}>Create Room</Button>
-        </div>
-        <p style={{ margin: 10 }}>or</p>
-        <div style={{ flex: 1, display: 'flex', justifyContent: 'center' }}>
-          <input
-            className={idError ? 'error' : ''}
-            value={roomId}
-            onChange={e => {
-              setRoomId(e.target.value);
-              setIdError(false);
-            }}
-            placeholder="Enter room id"
-          />
-          <Button
-            onClick={() => joinRoom(roomId)}
-            disabled={!roomId}
-            style={{ borderBottomLeftRadius: 0, borderTopLeftRadius: 0 }}
-          >
-            Join Room
-          </Button>
+    <div className="background">
+      <div className="foreground">
+        <h2>Smash Modes Online</h2>
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            alignItems: 'center',
+            marginTop: 40,
+          }}
+        >
+          <div style={{ display: 'flex', justifyContent: 'center' }}>
+            <Button onClick={createRoom}>Create Room</Button>
+          </div>
+          <p style={{ margin: 10, fontWeight: 500 }}>or</p>
+          <div style={{ display: 'flex', justifyContent: 'center' }}>
+            <input
+              className={idError ? 'error' : ''}
+              value={roomId}
+              onChange={e => {
+                setRoomId(e.target.value);
+                setIdError(false);
+              }}
+              placeholder="Enter room id"
+            />
+            <Button
+              onClick={() => joinRoom(roomId)}
+              disabled={!roomId}
+              style={{ borderBottomLeftRadius: 0, borderTopLeftRadius: 0 }}
+            >
+              Join Room
+            </Button>
+          </div>
         </div>
       </div>
     </div>
