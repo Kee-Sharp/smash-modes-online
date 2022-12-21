@@ -7,6 +7,7 @@ import {
   push,
   ref,
   remove,
+  runTransaction,
   set,
 } from 'firebase/database';
 import React, { useRef, useState } from 'react';
@@ -32,7 +33,7 @@ const FirebaseWrapper = () => {
   const [roomId, setRoomId] = useState('');
   const [idError, setIdError] = useState(false);
   const [hasJoinedRoom, setHasJoinedRoom] = useState(false);
-  const [available, setAvailable] = useState([]);
+  const [roomState, setRoomState] = useState({});
   const [roomOptions, setRoomOptions] = useState(null);
   const [images, setImages] = useState({});
   const unsubscribeRef = useRef(null);
@@ -41,13 +42,26 @@ const FirebaseWrapper = () => {
   const createRoom = async () => {
     const allFightersSnapshot = await get(child(dbRef, 'allFighters'));
     const allFighters = allFightersSnapshot.val();
-    const newRoomKey = push(child(dbRef, 'rooms'), { available: allFighters }).key;
+    const newRoomKey = push(child(dbRef, 'rooms'), {
+      state: {
+        p1: { wins: 0, picks: [], name: 'p1' },
+        p2: { wins: 0, picks: [], name: 'p2' },
+        /** 0-setup mercy and names, 1-picking chars, 2-after game, 3-game over */
+        gameMode: 0,
+        turn: 'p1',
+        winner: '',
+        p1Pick: 'none',
+        p2Pick: 'none',
+        totalBattles: 0,
+        available: allFighters,
+      },
+    }).key;
     setRoomId(newRoomKey);
     joinRoom(newRoomKey);
   };
 
-  const setupRoom = roomOptions => {
-    set(child(dbRef, `rooms/${roomId}/roomOptions`), roomOptions);
+  const setupRoom = options => {
+    set(child(dbRef, `rooms/${roomId}/options`), options);
   };
 
   const joinRoom = async key => {
@@ -60,8 +74,9 @@ const FirebaseWrapper = () => {
     }
     set(child(roomRef, `clients/${clientId}`), '');
     // set initial values even though they will be updated by the listener immediately
-    setAvailable(room.available ?? []);
-    setRoomOptions(room.roomOptions);
+    const { state, options } = room;
+    setRoomState(state);
+    setRoomOptions(options);
     // load images for each fighter
     const allFightersSnapshot = await get(child(dbRef, 'allFighters'));
     const allFighters = allFightersSnapshot.val();
@@ -88,18 +103,19 @@ const FirebaseWrapper = () => {
     const unsubscribe = onValue(roomRef, snapshot => {
       const data = snapshot.val();
       console.log(data);
-      setAvailable(data?.available ?? []);
-      setRoomOptions(data?.roomOptions);
+      setRoomState(data?.state ?? {});
+      setRoomOptions(data?.options ?? {});
     });
     unsubscribeRef.current = unsubscribe;
     setHasJoinedRoom(true);
   };
 
-  const handleSelection = selectedNames => {
-    const newAvailable = available.filter(
-      fighter => !selectedNames.includes(fighter.name)
-    );
-    set(child(dbRef, `rooms/${roomId}/available`), newAvailable);
+  const handleChangeRoomState = partialState => {
+    const roomStateRef = child(dbRef, `rooms/${roomId}/state`);
+    runTransaction(roomStateRef, previousState => {
+      if (!previousState) return null;
+      return { ...previousState, ...partialState };
+    });
   };
 
   const cleanup = async () => {
@@ -115,12 +131,12 @@ const FirebaseWrapper = () => {
 
   return hasJoinedRoom ? (
     <App
-      available={available}
       roomId={roomId}
+      roomState={roomState}
       roomOptions={roomOptions}
       images={images}
       setupRoom={setupRoom}
-      onSelectNames={handleSelection}
+      onChangeRoomState={handleChangeRoomState}
       onClose={cleanup}
     />
   ) : (
