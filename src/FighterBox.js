@@ -1,14 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
-export const FighterBox = ({ available, fighterClick, setPick }) => {
-  const [images, setImages] = useState([]);
-  useEffect(() => {
-    Promise.all(
-      available.map(fighter => import(`../public/horizontal/${fighter.file}.png`))
-    ).then(imageModules => {
-      setImages(imageModules.map(m => m.default));
-    });
-  }, [available]);
+export const FighterBox = ({ available, images, fighterClick, setPick }) => {
   //107x50 original 200x94
   return (
     <div className="fighter-box" onMouseOut={() => setPick('none')}>
@@ -16,7 +8,7 @@ export const FighterBox = ({ available, fighterClick, setPick }) => {
         const { name, file } = fighter;
         return (
           <img
-            src={images[i] ?? null}
+            src={images[name].horizontal ?? null}
             key={file}
             alt={name}
             height={50}

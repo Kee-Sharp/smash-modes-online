@@ -34,6 +34,7 @@ const FirebaseWrapper = () => {
   const [hasJoinedRoom, setHasJoinedRoom] = useState(false);
   const [available, setAvailable] = useState([]);
   const [roomOptions, setRoomOptions] = useState(null);
+  const [images, setImages] = useState({});
   const unsubscribeRef = useRef(null);
   const clientId = generateClientId();
 
@@ -59,8 +60,31 @@ const FirebaseWrapper = () => {
     }
     set(child(roomRef, `clients/${clientId}`), '');
     // set initial values even though they will be updated by the listener immediately
-    setAvailable(room?.available ?? []);
-    setRoomOptions(room?.roomOptions);
+    setAvailable(room.available ?? []);
+    setRoomOptions(room.roomOptions);
+    // load images for each fighter
+    const allFightersSnapshot = await get(child(dbRef, 'allFighters'));
+    const allFighters = allFightersSnapshot.val();
+    const imageModules = await Promise.all(
+      allFighters.map(fighter =>
+        Promise.all([
+          import(`../public/vertical/${fighter.file}.png`),
+          import(`../public/horizontal/${fighter.file}.png`),
+        ])
+      )
+    );
+    setImages(
+      imageModules.reduce(
+        (acc, [vertical, horizontal], index) => ({
+          ...acc,
+          [allFighters[index].name]: {
+            vertical: vertical.default,
+            horizontal: horizontal.default,
+          },
+        }),
+        {}
+      )
+    );
     const unsubscribe = onValue(roomRef, snapshot => {
       const data = snapshot.val();
       console.log(data);
@@ -94,6 +118,7 @@ const FirebaseWrapper = () => {
       available={available}
       roomId={roomId}
       roomOptions={roomOptions}
+      images={images}
       setupRoom={setupRoom}
       onSelectNames={handleSelection}
       onClose={cleanup}
