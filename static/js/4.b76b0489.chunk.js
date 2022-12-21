@@ -1,0 +1,2 @@
+(this["webpackJsonpsmash-modes-online"]=this["webpackJsonpsmash-modes-online"]||[]).push([[4],{145:function(s,n,e){s.exports=e.p+"static/media/bayonetta.3356c969.png"}}]);
+//# sourceMappingURL=4.b76b0489.chunk.js.map

@@ -1,0 +1,2 @@
+(this["webpackJsonpsmash-modes-online"]=this["webpackJsonpsmash-modes-online"]||[]).push([[71],{212:function(s,e,n){s.exports=n.p+"static/media/shizue.5c50b0d5.png"}}]);
+//# sourceMappingURL=71.ffcc480b.chunk.js.map

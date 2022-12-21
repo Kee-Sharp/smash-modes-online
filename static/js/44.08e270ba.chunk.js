@@ -1,2 +1,0 @@
-(this["webpackJsonpsmash-modes-online"]=this["webpackJsonpsmash-modes-online"]||[]).push([[44],{101:function(s,e,n){s.exports=n.p+"static/media/mewtwo.de79f85f.png"}}]);
-//# sourceMappingURL=44.08e270ba.chunk.js.map

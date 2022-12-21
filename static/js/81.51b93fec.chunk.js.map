@@ -1,0 +1,1 @@
+{"version":3,"sources":["../public/horizontal/wii_fit_trainer.png"],"names":["module","exports"],"mappings":"oHAAAA,EAAOC,QAAU,IAA0B","file":"static/js/81.51b93fec.chunk.js","sourcesContent":["module.exports = __webpack_public_path__ + \"static/media/wii_fit_trainer.30187492.png\";"],"sourceRoot":""}

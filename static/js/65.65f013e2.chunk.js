@@ -1,2 +1,0 @@
-(this["webpackJsonpsmash-modes-online"]=this["webpackJsonpsmash-modes-online"]||[]).push([[65],{122:function(s,n,o){s.exports=o.p+"static/media/rosetta_and_chiko.fcbb59b8.png"}}]);
-//# sourceMappingURL=65.65f013e2.chunk.js.map

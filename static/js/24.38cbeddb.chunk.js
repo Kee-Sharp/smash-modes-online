@@ -1,2 +1,0 @@
-(this["webpackJsonpsmash-modes-online"]=this["webpackJsonpsmash-modes-online"]||[]).push([[24],{81:function(s,e,a){s.exports=a.p+"static/media/ice_climber.a8c260aa.png"}}]);
-//# sourceMappingURL=24.38cbeddb.chunk.js.map

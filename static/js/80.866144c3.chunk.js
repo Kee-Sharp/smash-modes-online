@@ -1,0 +1,2 @@
+(this["webpackJsonpsmash-modes-online"]=this["webpackJsonpsmash-modes-online"]||[]).push([[80],{221:function(s,n,o){s.exports=o.p+"static/media/wario.2d8799b2.png"}}]);
+//# sourceMappingURL=80.866144c3.chunk.js.map

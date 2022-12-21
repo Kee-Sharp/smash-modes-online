@@ -1,1 +1,0 @@
-{"version":3,"sources":["../public/horizontal/banjo_and_kazooie.png"],"names":["module","exports"],"mappings":"kHAAAA,EAAOC,QAAU,IAA0B","file":"static/js/3.72de1586.chunk.js","sourcesContent":["module.exports = __webpack_public_path__ + \"static/media/banjo_and_kazooie.f2d4b079.png\";"],"sourceRoot":""}

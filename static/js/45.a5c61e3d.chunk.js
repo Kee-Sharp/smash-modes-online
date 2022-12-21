@@ -1,0 +1,2 @@
+(this["webpackJsonpsmash-modes-online"]=this["webpackJsonpsmash-modes-online"]||[]).push([[45],{186:function(s,i,e){s.exports=e.p+"static/media/mii_fighter.2a82cb18.png"}}]);
+//# sourceMappingURL=45.a5c61e3d.chunk.js.map

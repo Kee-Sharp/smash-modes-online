@@ -1,1 +1,0 @@
-{"version":3,"sources":["../public/horizontal/mario.png"],"names":["module","exports"],"mappings":"mHAAAA,EAAOC,QAAU,IAA0B","file":"static/js/41.2b9ec470.chunk.js","sourcesContent":["module.exports = __webpack_public_path__ + \"static/media/mario.c60562fb.png\";"],"sourceRoot":""}

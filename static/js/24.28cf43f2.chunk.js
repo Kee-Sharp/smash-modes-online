@@ -1,0 +1,2 @@
+(this["webpackJsonpsmash-modes-online"]=this["webpackJsonpsmash-modes-online"]||[]).push([[24],{165:function(s,e,a){s.exports=a.p+"static/media/ice_climber.a8c260aa.png"}}]);
+//# sourceMappingURL=24.28cf43f2.chunk.js.map

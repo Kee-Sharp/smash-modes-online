@@ -1,2 +1,0 @@
-(this["webpackJsonpsmash-modes-online"]=this["webpackJsonpsmash-modes-online"]||[]).push([[134],{191:function(s,n,a){s.exports=a.p+"static/media/pac_man.ad308e14.png"}}]);
-//# sourceMappingURL=134.255786fc.chunk.js.map

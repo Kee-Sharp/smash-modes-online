@@ -1,0 +1,2 @@
+(this["webpackJsonpsmash-modes-online"]=this["webpackJsonpsmash-modes-online"]||[]).push([[167],{140:function(s,e,n){s.exports=n.p+"static/media/yoshi.b88d43fe.png"}}]);
+//# sourceMappingURL=167.e69e58a6.chunk.js.map

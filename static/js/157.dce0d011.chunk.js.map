@@ -1,0 +1,1 @@
+{"version":3,"sources":["../public/vertical/simon.png"],"names":["module","exports"],"mappings":"qHAAAA,EAAOC,QAAU,IAA0B","file":"static/js/157.dce0d011.chunk.js","sourcesContent":["module.exports = __webpack_public_path__ + \"static/media/simon.4c3f899e.png\";"],"sourceRoot":""}

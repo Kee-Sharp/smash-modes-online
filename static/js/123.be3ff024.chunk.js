@@ -1,2 +1,0 @@
-(this["webpackJsonpsmash-modes-online"]=this["webpackJsonpsmash-modes-online"]||[]).push([[123],{180:function(s,n,a){s.exports=a.p+"static/media/lucina.6260abcb.png"}}]);
-//# sourceMappingURL=123.be3ff024.chunk.js.map

@@ -1,2 +1,0 @@
-(this["webpackJsonpsmash-modes-online"]=this["webpackJsonpsmash-modes-online"]||[]).push([[19],{76:function(s,e,n){s.exports=n.p+"static/media/fox.b322acea.png"}}]);
-//# sourceMappingURL=19.86224d66.chunk.js.map

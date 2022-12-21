@@ -1,1 +1,0 @@
-{"version":3,"sources":["../public/horizontal/yoshi.png"],"names":["module","exports"],"mappings":"oHAAAA,EAAOC,QAAU,IAA0B","file":"static/js/83.6b16bb90.chunk.js","sourcesContent":["module.exports = __webpack_public_path__ + \"static/media/yoshi.67651ff7.png\";"],"sourceRoot":""}

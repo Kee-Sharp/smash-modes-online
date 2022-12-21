@@ -1,0 +1,1 @@
+{"version":3,"sources":["../public/horizontal/wolf.png"],"names":["module","exports"],"mappings":"oHAAAA,EAAOC,QAAU,IAA0B","file":"static/js/82.e0f6cd44.chunk.js","sourcesContent":["module.exports = __webpack_public_path__ + \"static/media/wolf.0215ecba.png\";"],"sourceRoot":""}

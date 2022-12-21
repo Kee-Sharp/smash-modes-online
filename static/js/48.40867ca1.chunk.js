@@ -1,2 +1,0 @@
-(this["webpackJsonpsmash-modes-online"]=this["webpackJsonpsmash-modes-online"]||[]).push([[48],{105:function(s,e,n){s.exports=n.p+"static/media/murabito.9ef28d7b.png"}}]);
-//# sourceMappingURL=48.40867ca1.chunk.js.map

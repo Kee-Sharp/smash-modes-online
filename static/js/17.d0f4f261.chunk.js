@@ -1,2 +1,0 @@
-(this["webpackJsonpsmash-modes-online"]=this["webpackJsonpsmash-modes-online"]||[]).push([[17],{74:function(s,n,e){s.exports=e.p+"static/media/duck_hunt.869aeba7.png"}}]);
-//# sourceMappingURL=17.d0f4f261.chunk.js.map

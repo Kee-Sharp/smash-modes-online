@@ -1,2 +1,0 @@
-(this["webpackJsonpsmash-modes-online"]=this["webpackJsonpsmash-modes-online"]||[]).push([[166],{223:function(s,e,n){s.exports=n.p+"static/media/wolf.d05e9049.png"}}]);
-//# sourceMappingURL=166.af881372.chunk.js.map

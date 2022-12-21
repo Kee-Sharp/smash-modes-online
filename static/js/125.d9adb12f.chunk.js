@@ -1,0 +1,2 @@
+(this["webpackJsonpsmash-modes-online"]=this["webpackJsonpsmash-modes-online"]||[]).push([[125],{98:function(s,e,n){s.exports=n.p+"static/media/mario.9639cecd.png"}}]);
+//# sourceMappingURL=125.d9adb12f.chunk.js.map

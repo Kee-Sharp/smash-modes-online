@@ -1,0 +1,2 @@
+(this["webpackJsonpsmash-modes-online"]=this["webpackJsonpsmash-modes-online"]||[]).push([[56],{197:function(s,n,e){s.exports=e.p+"static/media/pikmin_and_olimar.5e0d2fea.png"}}]);
+//# sourceMappingURL=56.f360fe01.chunk.js.map

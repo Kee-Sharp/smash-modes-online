@@ -1,0 +1,2 @@
+(this["webpackJsonpsmash-modes-online"]=this["webpackJsonpsmash-modes-online"]||[]).push([[87],{60:function(s,n,o){s.exports=o.p+"static/media/banjo_and_kazooie.efb23396.png"}}]);
+//# sourceMappingURL=87.cb9373ae.chunk.js.map

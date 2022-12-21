@@ -1,0 +1,2 @@
+(this["webpackJsonpsmash-modes-online"]=this["webpackJsonpsmash-modes-online"]||[]).push([[97],{70:function(s,n,e){s.exports=e.p+"static/media/diddy_kong.f6cec282.png"}}]);
+//# sourceMappingURL=97.474b4ca4.chunk.js.map

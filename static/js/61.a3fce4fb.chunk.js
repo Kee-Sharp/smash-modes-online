@@ -1,2 +1,0 @@
-(this["webpackJsonpsmash-modes-online"]=this["webpackJsonpsmash-modes-online"]||[]).push([[61],{118:function(s,e,n){s.exports=n.p+"static/media/richter.c1cd7ed1.png"}}]);
-//# sourceMappingURL=61.a3fce4fb.chunk.js.map

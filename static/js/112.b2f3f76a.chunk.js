@@ -1,0 +1,2 @@
+(this["webpackJsonpsmash-modes-online"]=this["webpackJsonpsmash-modes-online"]||[]).push([[112],{85:function(s,e,n){s.exports=n.p+"static/media/kamui.f9e48512.png"}}]);
+//# sourceMappingURL=112.b2f3f76a.chunk.js.map

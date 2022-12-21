@@ -1,1 +1,0 @@
-{"version":3,"sources":["../public/horizontal/falco.png"],"names":["module","exports"],"mappings":"mHAAAA,EAAOC,QAAU,IAA0B","file":"static/js/18.eccffc2d.chunk.js","sourcesContent":["module.exports = __webpack_public_path__ + \"static/media/falco.2e722bb9.png\";"],"sourceRoot":""}

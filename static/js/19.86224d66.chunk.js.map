@@ -1,1 +1,0 @@
-{"version":3,"sources":["../public/horizontal/fox.png"],"names":["module","exports"],"mappings":"mHAAAA,EAAOC,QAAU,IAA0B","file":"static/js/19.86224d66.chunk.js","sourcesContent":["module.exports = __webpack_public_path__ + \"static/media/fox.b322acea.png\";"],"sourceRoot":""}

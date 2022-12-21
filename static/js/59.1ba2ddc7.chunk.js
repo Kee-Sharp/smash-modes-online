@@ -1,2 +1,0 @@
-(this["webpackJsonpsmash-modes-online"]=this["webpackJsonpsmash-modes-online"]||[]).push([[59],{116:function(s,n,e){s.exports=e.p+"static/media/purin.ec0bdd51.png"}}]);
-//# sourceMappingURL=59.1ba2ddc7.chunk.js.map

@@ -1,2 +1,0 @@
-(this["webpackJsonpsmash-modes-online"]=this["webpackJsonpsmash-modes-online"]||[]).push([[29],{86:function(s,a,e){s.exports=e.p+"static/media/kazuya.a3e73995.png"}}]);
-//# sourceMappingURL=29.6bdfe446.chunk.js.map

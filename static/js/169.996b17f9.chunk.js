@@ -1,2 +1,0 @@
-(this["webpackJsonpsmash-modes-online"]=this["webpackJsonpsmash-modes-online"]||[]).push([[169],{226:function(s,a,e){s.exports=e.p+"static/media/zelda.a95a3d1a.png"}}]);
-//# sourceMappingURL=169.996b17f9.chunk.js.map

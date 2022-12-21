@@ -1,1 +1,0 @@
-{"version":3,"sources":["../public/horizontal/sonic.png"],"names":["module","exports"],"mappings":"oHAAAA,EAAOC,QAAU,IAA0B","file":"static/js/75.f350e1d5.chunk.js","sourcesContent":["module.exports = __webpack_public_path__ + \"static/media/sonic.7f06c59d.png\";"],"sourceRoot":""}

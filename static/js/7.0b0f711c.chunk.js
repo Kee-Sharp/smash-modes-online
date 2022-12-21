@@ -1,2 +1,0 @@
-(this["webpackJsonpsmash-modes-online"]=this["webpackJsonpsmash-modes-online"]||[]).push([[7],{64:function(s,n,a){s.exports=a.p+"static/media/captain_falcon.a7977cc7.png"}}]);
-//# sourceMappingURL=7.0b0f711c.chunk.js.map

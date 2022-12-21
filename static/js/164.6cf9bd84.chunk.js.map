@@ -1,0 +1,1 @@
+{"version":3,"sources":["../public/vertical/wario.png"],"names":["module","exports"],"mappings":"qHAAAA,EAAOC,QAAU,IAA0B","file":"static/js/164.6cf9bd84.chunk.js","sourcesContent":["module.exports = __webpack_public_path__ + \"static/media/wario.7ad6c246.png\";"],"sourceRoot":""}

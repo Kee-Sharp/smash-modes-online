@@ -1,2 +1,0 @@
-(this["webpackJsonpsmash-modes-online"]=this["webpackJsonpsmash-modes-online"]||[]).push([[117],{174:function(s,o,n){s.exports=n.p+"static/media/koopa.28cf220d.png"}}]);
-//# sourceMappingURL=117.11d9d852.chunk.js.map
