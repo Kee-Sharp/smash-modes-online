@@ -9,7 +9,15 @@ export const Setup = ({ fighterLength, startGame }) => {
   const [mercy, setmercy] = useState(false);
   const absoluteMax = Math.floor(fighterLength / 2);
   return (
-    <div style={{ display: 'flex', justifyContent: 'center' }}>
+    <div
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        padding: 12,
+      }}
+    >
+      <h2>Room Options:</h2>
       <Form id="setup">
         <Form.Group>
           <Form.Label>How Many Battles?</Form.Label>

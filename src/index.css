@@ -22,24 +22,20 @@ input[type='number']::-webkit-outer-spin-button {
   margin: 0;
 }
 
-/* * {
-  outline: none
-}
-label:focus {
-  outline: 0
-} */
-/* 
-input, input:focus{
-  border-width: 0px;
-  outline:0; 
-  -webkit-appearance:none;
-  box-shadow: none;
-  -moz-box-shadow: none;
-  -webkit-box-shadow: none;
-  color: black
-} */
 .form-inline {
   display: block
+}
+
+div.background {
+  background-image: url(https://wallpaper.dog/large/7373.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh
+}
+div.foreground {
+  padding: 24px;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.4);
 }
 
 @keyframes shake {
